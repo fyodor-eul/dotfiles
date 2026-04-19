@@ -1,0 +1,74 @@
+/* Warm transparent wofi theme */
+/* Save as ~/.config/wofi/style.css */
+
+window {
+    margin: 0px;
+    border: 2px solid rgba(157, 143, 103, 0.6);
+    background-color: rgba(40, 30, 25, 0.85);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+#input {
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid rgba(157, 143, 103, 0.4);
+    color: #ffd4a3;
+    background-color: rgba(60, 40, 30, 0.7);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+#input:focus {
+    border: 1px solid rgba(157, 143, 103, 0.8);
+    background-color: rgba(70, 45, 35, 0.8);
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: #ffcc99;
+    font-weight: 400;
+}
+
+#entry {
+    padding: 8px;
+    margin: 2px;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+#entry:selected {
+    background-color: rgba(157, 143, 103, 0.3);
+    color: #fff2e6;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(157, 143, 103, 0.2);
+}
+
+#entry:hover {
+    background-color: rgba(157, 143, 103, 0.2);
+}
+
+/* Image styling for app icons */
+#img {
+    margin-right: 8px;
+    border-radius: 4px;
+}

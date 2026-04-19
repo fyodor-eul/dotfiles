@@ -7,3 +7,8 @@ stow -t ~ vim
 stow -t ~ bash
 stow -t ~ nvim
 stow -t ~ cursors
+stow -t ~ hyprpaper
+stow -t ~ waybar
+stow -t ~ wofi
+stow -t ~ hyprlock
+stow -t ~ hyprland

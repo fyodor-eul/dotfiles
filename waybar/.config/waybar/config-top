@@ -1,0 +1,52 @@
+
+{
+    // General Settings
+
+    // Position TOP
+    "layer": "top",
+    "margin-bottom": 0,
+
+    // Position BOTTOM
+    // "position": "bottom",
+    // "margin-top": 0,
+    // "margin-bottom": 14,
+    
+    "layer": "top",
+    "margin-left": 30,
+    "margin-right": 30,    
+    "spacing": 0,
+
+    // Load Modules
+    "include": [
+        "~/dotfiles/.settings/waybar-quicklinks.json",
+        "~/.config/waybar/modules.json"
+    ],
+
+    // Modules Left
+    "modules-left": [
+        "custom/appmenu",
+        "custom/settings",
+        "custom/waybarthemes",
+        "custom/wallpaper",
+        //"wlr/taskbar",
+        "group/quicklinks",
+        "hyprland/window",
+        "custom/starter"
+    ],
+
+    // Modules Center
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "pulseaudio",
+        "battery",
+        "bluetooth",
+        "network",
+        "clock"
+    ]
+
+}
+
+

@@ -1,22 +1,28 @@
 # Installation
-## Requirements
-- git
-- stow
-- xsel
 
-## Clone this repo
+## Structure
+- Compositor (`hyprland`)
+- Lock Screen (`hyprlock`, `hypridle`)
+- Panel (`waybar`)
+- Wallpaper (`swww`, `swww-daemon`, `mpvpaper`)
+- Application Launcher (`wofi`)
+- Terminal (`kitty`, `tmux`)
+- Text Editor (`vim`, `nvim`)
+
+## Requirements
+- `git`
+- `stow`
+- `xsel`
+
+## Installation
+### Clone this repo
 ```
 git clone https://github.com/fy0d-0r/dotfiles.git
 ```
+Run `install.sh` script
 
-## Clone Tmux Package Manager (tpm)
-```
-cd dotfiles/tmux/.config/tmux/plugins
-git clone https://github.com/tmux-plugins/tpm.git
-```
 
 ## Uninstalling
-
 Run the `uninstall.sh` script
 ```
 cd ~/dotfiles/
@@ -24,7 +30,6 @@ cd ~/dotfiles/
 ```
 
 You can now delete the repository
-
 
 
 ### References

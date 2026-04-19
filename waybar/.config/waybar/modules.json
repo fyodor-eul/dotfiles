@@ -1,0 +1,34 @@
+{
+  "clock": {
+    "format": "{:%a %d %H:%M}",
+    "tooltip-format": "{:%A, %B %d, %Y | %H:%M:%S}",
+    "on-click": "gnome-calendar"
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% ",
+    "scroll-step": 5,
+    "on-click": "pulseaudio"
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "on-click": "xfce4-power-manager-settings"
+  },
+
+  "network": {
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "  {ifname}",
+    "format-disconnected": "⚠️ Disconnected",
+    "on-click": "alacritty -e nmtui"
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "on-click": "blueman-manager"
+  }
+}
+
+

@@ -1,0 +1,25 @@
+[general]
+bars = 8
+bar_width = 4
+bar_spacing = 1
+
+[input]
+method = pulse
+
+[output]
+method = ncurses
+
+[color]
+gradient = 1
+gradient_count = 6
+gradient_color_1 = '#9D8F67'
+gradient_color_2 = '#B5A678'
+gradient_color_3 = '#CCBD89'
+gradient_color_4 = '#E3D49A'
+gradient_color_5 = '#FFEAAB'
+gradient_color_6 = '#FFD4A3'
+
+[smoothing]
+integral = 70
+monstercat = 1
+waves = 0

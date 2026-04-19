@@ -5,7 +5,7 @@ colorscheme default "industry "koehler
 set number
 set relativenumber
 
-set nowrap           " disable line wrapping set set wrap
+"set nowrap           " disable line wrapping set set wrap
 
 set tabstop=4
 set shiftwidth=4

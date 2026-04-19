@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+WALLPAPER="$1"
+pkill mpvpaper 2> /dev/null
+pkill swww-daemon 2> /dev/null
+
+if [[ $WALLPAPER == *.mp4 || $WALLPAPER == *.gif || $WALLPAPER == *.webm ]]; then
+    mpvpaper eDP-1 "$WALLPAPER" --loop --no-audio --hwdec-auto &
+else
+    swww-daemon & sleep 0.5
+    swww img "$WALLPAPER"
+fi

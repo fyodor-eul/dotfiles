@@ -50,6 +50,7 @@ alias ping='grc ping'
 alias ip='grc ip'
 
 alias neofetch='neofetch --ascii_colors 7'
+alias fclear='clear && chafa -s 20x20 ~/opt/images/yoru/yoru5.jpeg'
 
 # Enable vi mode
 set -o vi
@@ -68,3 +69,39 @@ bind '"\C-o": clear-screen'
 export EDITOR='vim'
 export VISUAL='vim'
 export MANPAGER="nvim +Man!"
+
+#alias t-rain='(pactl set-sink-volume @DEFAULT_SINK@ 80% && paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 && pactl set-sink-volume @DEFAULT_SINK@ 30%) >/dev/null 2>&1 & disown; \
+#  terminal-rain --rain-color white --lightning-color white'
+
+# Created by `pipx` on 2025-08-04 11:59:48
+export PATH="$PATH:~/opt/bin/"
+
+#clear && cat ~/opt/banner.ascii
+clear && chafa -s 20x20 ~/opt/images/yoru/yoru5.jpeg
+#(pactl set-sink-volume @DEFAULT_SINK@ 80% && paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 && pactl set-sink-volume @DEFAULT_SINK@ 30%) >/dev/null 2>&1 &
+
+command_not_found_handle() {
+  pactl set-sink-volume @DEFAULT_SINK@ 80% && paplay ~/opt/sound_effects/frieren/its_not_supposed_to_be_visiting_this_time.mp3 && pactl set-sink-volume @DEFAULT_SINK@ 50% >/dev/null 1>&2 & disown;
+  echo "bash: command not found: $1"
+  return 127
+}
+
+t-rain() {
+  (
+    pactl set-sink-volume @DEFAULT_SINK@ 80% &&
+    paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 &&
+    pactl set-sink-volume @DEFAULT_SINK@ 50%
+  ) >/dev/null 2>&1 & disown;
+
+  terminal-rain --rain-color white --lightning-color white
+}
+
+fvim(){
+    (
+        pactl set-sink-volume @DEFAULT_SINK@ 80% &&
+        paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 &&
+        pactl set-sink-volume @DEFAULT_SINK@ 50%
+    ) >/dev/null 2>&1 & disown;
+    nvim
+}
+export PATH="$HOME/.local/bin:$PATH"
