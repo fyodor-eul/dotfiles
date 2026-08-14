@@ -1,4 +1,13 @@
-tmux/.config/tmux/plugins/tmux-sensible
-tmux/.config/tmux/plugins/tmux-yank
-tmux/.config/tmux/plugins/tpm
-tmux/.config/tmux/plugins/vim-tmux-navigator
+# Secrets / local overrides
+*.local
+*local.lua
+.env
+secrets/
+
+# Caches / state that shouldn't be tracked
+*.log
+*-cache/
+
+# Third-party tmux plugins (managed by tpm)
+tmux/.config/tmux/plugins/
+
