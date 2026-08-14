@@ -22,35 +22,33 @@ parse_git_branch() {
 }
 
 # Include Git branch in PS1 prompt
-cd_func(){
-    cd "${1:-$HOME}"; # && echo "Hello";
+cd_func() {
+  cd "${1:-$HOME}" # && echo "Hello";
 
-    if git rev-parse --is-inside-work-tree &>/dev/null; then
-        # Get the current Git branch and status
-        local branch=$(parse_git_branch)
-        local git_status=$(git status --porcelain 2>/dev/null)
-        local branch_status=""
-        if [[ -n "$git_status" ]]; then
-            branch_status="*"
-        fi
-        export PS1="${GREY}[${RESET}${RED}\u${RESET}${GREY}@${RESET}${RED}\h${RESET}:${GREEN_SHADE}\W${RESET}${GREY}]-(${BROWN}${branch}${branch_status}${RESET})-$ "
-    else
-        export PS1="${GREY}[${RESET}${RED}\u${RESET}${GREY}@${RESET}${RED}\h${RESET}:${GREEN_SHADE}\W${RESET}${GREY}] $ "
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    # Get the current Git branch and status
+    local branch=$(parse_git_branch)
+    local git_status=$(git status --porcelain 2>/dev/null)
+    local branch_status=""
+    if [[ -n "$git_status" ]]; then
+      branch_status="*"
     fi
+    export PS1="${GREY}[${RESET}${RED}\u${RESET}${GREY}@${RESET}${RED}\h${RESET}:${GREEN_SHADE}\W${RESET}${GREY}]-(${BROWN}${branch}${branch_status}${RESET})-$ "
+  else
+    export PS1="${GREY}[${RESET}${RED}\u${RESET}${GREY}@${RESET}${RED}\h${RESET}:${GREEN_SHADE}\W${RESET}${GREY}] $ "
+  fi
 }
 
 alias cd='cd_func'
 
-
 # Syntax Highlighting
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-
 alias ping='grc ping'
 alias ip='grc ip'
-
 alias neofetch='neofetch --ascii_colors 7'
 alias fclear='clear && chafa -s 20x20 ~/opt/images/yoru/yoru5.jpeg'
+#alias fclear='clear'
 
 # Enable vi mode
 set -o vi
@@ -76,12 +74,9 @@ export MANPAGER="nvim +Man!"
 # Created by `pipx` on 2025-08-04 11:59:48
 export PATH="$PATH:~/opt/bin/"
 
-#clear && cat ~/opt/banner.ascii
-clear && chafa -s 20x20 ~/opt/images/yoru/yoru5.jpeg
-#(pactl set-sink-volume @DEFAULT_SINK@ 80% && paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 && pactl set-sink-volume @DEFAULT_SINK@ 30%) >/dev/null 2>&1 &
-
 command_not_found_handle() {
-  pactl set-sink-volume @DEFAULT_SINK@ 80% && paplay ~/opt/sound_effects/frieren/its_not_supposed_to_be_visiting_this_time.mp3 && pactl set-sink-volume @DEFAULT_SINK@ 50% >/dev/null 1>&2 & disown;
+  #pactl set-sink-volume @DEFAULT_SINK@ 80% && paplay ~/opt/sound_effects/frieren/its_not_supposed_to_be_visiting_this_time.mp3 && pactl set-sink-volume @DEFAULT_SINK@ 50% >/dev/null 1>&2 &
+  disown
   echo "bash: command not found: $1"
   return 127
 }
@@ -89,19 +84,31 @@ command_not_found_handle() {
 t-rain() {
   (
     pactl set-sink-volume @DEFAULT_SINK@ 80% &&
-    paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 &&
-    pactl set-sink-volume @DEFAULT_SINK@ 50%
-  ) >/dev/null 2>&1 & disown;
+      paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 &&
+      pactl set-sink-volume @DEFAULT_SINK@ 50%
+  ) >/dev/null 2>&1 &
+  disown
 
   terminal-rain --rain-color white --lightning-color white
 }
 
-fvim(){
-    (
-        pactl set-sink-volume @DEFAULT_SINK@ 80% &&
-        paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 &&
-        pactl set-sink-volume @DEFAULT_SINK@ 50%
-    ) >/dev/null 2>&1 & disown;
-    nvim
+fvim() {
+  (
+    pactl set-sink-volume @DEFAULT_SINK@ 80% &&
+      paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 &&
+      pactl set-sink-volume @DEFAULT_SINK@ 50%
+  ) >/dev/null 2>&1 &
+  disown
+  nvim
 }
 export PATH="$HOME/.local/bin:$PATH"
+
+# Run when the terminal starts
+#clear && cat ~/opt/banner.ascii
+clear
+#(pactl set-sink-volume @DEFAULT_SINK@ 80% && paplay ~/opt/sound_effects/frieren/im_in_front_of_u.mp3 && pactl set-sink-volume @DEFAULT_SINK@ 30%) >/dev/null 2>&1 &
+
+# Flutter
+export PATH="$PATH:/drive/opt/flutter/bin"
+export PUB_CACHE="/drive/.pub-cache"
+export FLUTTER_ROOT="/drive/opt/flutter"
